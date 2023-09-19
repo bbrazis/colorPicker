@@ -239,6 +239,11 @@ a.color-code:hover {
 }
 
 @media (max-width:550px) {
+    .container {
+        width: 100%;
+        padding-inline: 1em;
+    }
+
     .site-hero {
         height: clamp(7rem,40dvh,10rem);
     }
