@@ -89,7 +89,6 @@ const addToClipboard = async (text) => {
 
 const getInnerText = (e) => {
   const text = e.target.dataset.color
-  // console.log(text)
   addToClipboard(text)
 }
 
