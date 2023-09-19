@@ -145,4 +145,4 @@ div.style.textAlign = 'center'
 // const body = document.body
 (function insertAfter(div, roseHeader) {
   roseHeader.parentNode.insertBefore(div, roseHeader.nextSibling)
-})
+})()
