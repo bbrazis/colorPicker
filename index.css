@@ -1,0 +1,306 @@
+:root {
+    --color-main: #1e1e1e;
+    --bg-main: #ffffff;
+    --app-button: var(--bg-main);
+    --app-border: 1px solid lightgrey;
+    --app-color: #2B283A;
+    --b-radius: .25rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-main: #ffffff;
+        --bg-main: #1F2937;
+        --app-button: #3D4B60;
+        --app-border: 1px solid #D1D5DB;
+        --app-color: #D5D4D8;
+    }
+    
+    form button {
+        border: transparent !important;
+        box-sizing: content-box;
+    }
+}
+
+html, body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+    line-height: 1.4;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--color-main);
+}
+
+header {
+    padding-block: 1em;
+}
+
+.visually-hidden {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(
+    1px 1px 1px 1px
+  ); /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+  clip: rect(
+    1px,
+    1px,
+    1px,
+    1px
+  ); /*maybe deprecated but we need to support legacy browsers */
+  clip-path: inset(
+    50%
+  ); /*modern browsers, clip-path works inwards from each corner*/
+  white-space: nowrap; /* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
+}
+
+.site-hero {
+    padding-block: 1.5em;
+    background: #283c86;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #45a247, #283c86);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #45a247, #283c86); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #fff;
+    text-align: center;
+    height: clamp(7rem,40dvh,15rem);
+    display: flex;
+    align-items: center;
+    
+    & h1 {
+        font-size: 1.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: .125rem;
+        line-height: 1.25;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    width: 90%;
+    margin-inline: auto;
+}
+
+.app-main {
+    background: var(--bg-main);
+}
+
+.app-header {
+    padding-block: 1em;
+    box-shadow: 0 5px 10px -5px rgba(0,0,0,.4);
+}
+
+.app-header form {
+    width: 100%;
+    display: flex;
+    gap: .5em;
+    justify-content: space-between;
+}
+
+input[type="color"] {
+    height: 2.5rem;
+    width: 3.5rem;
+    flex-shrink: 0;
+    border: none;
+    border-radius: var(--b-radius);
+}
+
+.select-box {
+    width: 100%;
+    position: relative;
+}
+
+.select-box select {
+    display: none;
+    background: var(--bg-main);
+    border: var(--app-border);
+    padding: .25em .5em;
+    width: 100%;
+    border-radius: var(--b-radius);
+}
+
+.select-selected {
+    background: var(--bg-main);
+    line-height: 1.45;
+    border: var(--app-border);
+    border-radius: var(--b-radius);
+}
+
+.select-selected:before,
+.select-selected:after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    width: 0;
+    height: 0;
+    transform: translateY(-25%);
+    right: 1em;
+}
+
+.select-selected:before {
+    border: 6px solid var(--color-main);
+    border-color: var(--color-main) transparent transparent transparent;
+}
+
+.select-selected:after {
+    top:49.4%;
+    right: 1.0625em;
+    border: 5px solid var(--bg-main);
+    border-color: var(--bg-main) transparent transparent transparent;
+}
+
+.select-selected.select-arrow-active:before {
+    border-color: transparent transparent var(--color-main) transparent;
+    top: 35%;
+}
+
+.select-selected.select-arrow-active:after {
+    top: 39%;
+    border-color: transparent transparent var(--bg-main) transparent;
+}
+
+.select-items div,.select-selected {
+  color: var(--app-color);
+  padding: .5rem 1rem;
+  cursor: pointer;
+  border-left: var(--app-border);
+  border-right: var(--app-border);
+  border-bottom: var(--app-border)
+}
+
+.select-items {
+  position: absolute;
+  background-color: var(--bg-main);
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+form button {
+    background-color: var(--app-button);
+    color: var(--color-main);
+    font-size: .75rem;
+    display: flex;
+    padding-inline: 1em;
+    line-height: 1;
+    align-items: center;
+    border: var(--app-border);
+    flex-shrink: 0;
+    border-radius: var(--b-radius);
+}
+
+.app-content {
+    height: clamp(10rem, 80dvh, 28.75rem);
+    display: grid;
+    grid-template: 1fr / repeat(5, 1fr);
+}
+
+.color-option {
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+}
+
+a.color-code {
+    background: var(--bg-main);
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    margin-block-start: auto;
+    align-items: center;
+    color: var(--app-color);
+    cursor: pointer;
+    transition: opacity 200ms;
+    font-size: .75rem;
+    font-weight: 400;
+}
+
+a.color-code:hover {
+    filter: opacity(.8);
+}
+
+@media (max-width:550px) {
+    .site-hero {
+        height: clamp(7rem,40dvh,10rem);
+    }
+    
+    .app-content {
+        grid-template: repeat(5, 1fr) / 1fr;
+    }
+    
+    .color-option { flex-direction: row; }
+    
+    a.color-code {
+        margin-block-start: 0;
+        margin-inline-start: auto;
+        min-width: 4.6875rem;
+    }
+    
+    .app-header form {
+        flex-wrap: wrap;
+        gap: 1.25em;
+        padding-block: 1em;
+    }
+    
+    form button {
+        line-height: 3;
+        display: inline-block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* tooltip styles */
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 140px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -75px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}

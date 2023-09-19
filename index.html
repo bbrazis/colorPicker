@@ -1,0 +1,47 @@
+<html>
+    <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link rel="stylesheet" href="index.css">
+        <title>ColorPicker.io</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <p class="title">ColorPicker.io</p>
+            </div>
+        </header>
+        <section class="site-hero">
+            <div class="container">
+                <h1>Generate custom color palettes in a flash</h1>
+            </div>
+        </section>
+        <main class="app-main">
+            <div class="app-header">
+                <div class="container">
+                    <form id="color-form">
+                        <label class="visually-hidden" for="color-picker">Color Picker</label>
+                        <input type="color" name="color-picker" id="color-picker" value="#F55A5A">
+                        <label class="visually-hidden" for="color-scheme">Color Scheme</label>
+                        <div class="select-box">
+                            <select name="color-scheme" id="color-scheme">
+                                <option value="monochrome">Monochrome</option>
+                                <option value="monochrome">Monochrome</option>
+                                <option value="monochrome-dark">Monochrome-dark</option>
+                                <option value="monochrome-light">Monochrome-light</option>
+                                <option value="analogic">Analogic</option>
+                                <option value="complement">Complement</option>
+                                <option value="analogic-complement">Analogic-complement</option>
+                                <option value="triad">Triad</option>
+                            </select>
+                        </div>
+                        <button>Get color scheme</button>
+                    </form>
+                </div>
+            </div>
+            <div class="app-content" id="colors-el">
+                <!-- JS Generated Content Goes Here -->
+            </div>
+        </main>
+        <script src="index.js"></script>
+    </body>
+</html>
