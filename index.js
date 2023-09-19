@@ -126,3 +126,17 @@ colorForm.addEventListener('submit', function(e) {
   getColorScheme(colorPicker.value.slice(1), colorScheme.selectedOptions[0].value)
 })
 
+const roseHeader = document.querySelector('header')
+
+const div = document.createElement('div')
+const p = document.createElement('p')
+p.textContent = 'We will be closing at 3pm tomorrow, September 20th, for a private event.'
+p.style.color = 'white'
+p.style.fontSize = '12px'
+p.style.marginInline = 'auto'
+// div.innerHTML = `<p style="color:white;font-size:12px;margin-inline:auto;">We will be closing at 3pm tomorrow, September 20th, for a private event.</p>`
+div.style.position = 'sticky'
+div.style.top = '0'
+div.style.width = '100%'
+div.style.padding = '.5rem 1rem'
+div.style.backgroundColor = 'red'
