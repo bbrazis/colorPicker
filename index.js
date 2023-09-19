@@ -143,6 +143,9 @@ div.style.padding = '.5rem 1rem'
 div.style.backgroundColor = 'red'
 div.style.textAlign = 'center'
 // const body = document.body
-(function insertAfter(div, roseHeader) {
-  roseHeader.parentNode.insertBefore(div, roseHeader.nextSibling)
-})()
+
+function insertAfter(newNode, existingNode) {
+  existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling)
+}
+
+insertAfter(div, roseHeader)
