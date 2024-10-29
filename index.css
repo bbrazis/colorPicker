@@ -209,12 +209,13 @@ form button {
 
 .app-content {
     height: clamp(10rem, 80dvh, 28.75rem);
-    display: grid;
-    grid-template: 1fr / repeat(5, 1fr);
+    display: flex;
+    width: 100%;
 }
 
 .color-option {
     height: 100%;
+    width: 100%;
     background-color: transparent;
     display: flex;
     flex-direction: column;
@@ -249,7 +250,8 @@ a.color-code:hover {
     }
     
     .app-content {
-        grid-template: repeat(5, 1fr) / 1fr;
+        flex-direction: column;
+        /* grid-template: repeat(5, 1fr) / 1fr; */
     }
     
     .color-option { flex-direction: row; }
